@@ -1,0 +1,25 @@
+#Logo{
+    margin-left: 2%;
+}
+
+h1{
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom:3%;
+}
+
+.card-body{
+    padding: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#Botones{
+    margin-right: 3px;
+}
+
+.card{
+    max-width: 400px;
+    margin-left: 32%;
+}
+

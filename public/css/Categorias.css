@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    margin-top: 4%;
+}
+
+.card-body{
+    padding: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+
+  .row{
+    margin-left: 8%;
+  }
+
+  .card{
+    box-shadow: 30px;
+  }
+
+  .card:hover{
+    background-color: #007bff;
+    color: white;  
+    box-shadow: 10px;    
+  }
+
+  #paginacion{
+    margin-top: 5%;
+}

@@ -1,0 +1,36 @@
+#Logo{
+    margin-left: 2%;
+}
+
+#paginacion{
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.card{
+    box-shadow: 30px;
+  }
+
+  .card:hover{
+    background-color: #007bff;
+    color: white;  
+    box-shadow: 10px;    
+  }
+
+  h1{
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom:3%;
+}
+
+.card-body{
+    padding: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#btnVolver{
+  height: 33px;
+  width: 101px;
+  margin-left: 6%;
+}

@@ -1,0 +1,71 @@
+-- database: ./database/database.sqlite
+
+-- Use the ▷ button in the top right corner to run the entire file.
+drop table Categorias;
+drop table Producto_Vino;
+
+CREATE TABLE Categorias (
+    idCategoria INTEGER PRIMARY KEY AUTOINCREMENT,
+    Tipo TEXT,
+    Descripcion TEXT,
+    Caracteristicas_Generales TEXT,
+    Temperatura_Servicio_Recomendada TEXT,
+    Maridaje_General TEXT
+);
+
+CREATE TABLE Producto_Vino (
+    IdVino INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre TEXT,
+    Bodega TEXT,
+    idCategoria INTEGER,
+    Variedad_Uva TEXT,
+    Region TEXT,
+    Anada INTEGER,
+    Afrutado INTEGER,
+    Acidez INTEGER,
+    Taninos INTEGER,
+    Cuerpo INTEGER,
+    Maridaje_Recomendado TEXT,
+    Precio REAL,
+    FOREIGN KEY (idCategoria) REFERENCES Categorias(idCategoria)
+);
+
+INSERT INTO Categorias (Tipo, Descripcion, Caracteristicas_Generales, Temperatura_Servicio_Recomendada, Maridaje_General) VALUES
+('Tinto', 'Elaborado con uvas tintas, con maceración de los hollejos que le aportan color y taninos.', 'Color rojo, sabores a frutas rojas, negras y especias', '16-18', 'Carnes rojas, caza, quesos curados'),
+('Blanco', 'Elaborado con uvas blancas o tintas sin maceración con los hollejos.', 'Color amarillo pálido a dorado, sabores a frutas cítricas, blancas y tropicales', '8-12', 'Pescados, mariscos, aves, ensaladas'),
+('Rosado', 'Elaborado con uvas tintas con un breve contacto con los hollejos.', 'Color rosa, sabores a frutas rojas y notas florales', '10-12', 'Aperitivos, ensaladas, tapas, platos ligeros'),
+('Espumoso', 'Vino que contiene gas carbónico que produce espuma.', 'Burbujas finas, aromas frutales y florales', '6-8', 'Aperitivos, postres, celebraciones'),
+('Jerez', 'Vino fortificado producido en la región de Jerez.', 'Aromas complejos a frutos secos, madera y especias', '10-16', 'Aperitivos, quesos, mariscos, postres');
+
+-- Insertar datos en la tabla Producto_Vino
+INSERT INTO Producto_Vino (Nombre, Bodega, idCategoria, Variedad_Uva, Region, Anada, Afrutado, Acidez, Taninos, Cuerpo, Maridaje_Recomendado, Precio) VALUES
+('Marqués de Riscal Reserva', 'Marqués de Riscal', 1, 'Tempranillo', 'Rioja', 2016, 'Medio', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes rojas', 25),
+('Vega Sicilia Unico', 'Vega Sicilia', 1, 'Tinto Fino', 'Ribera del Duero', 2010, 'Alto', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes de caza', 350),
+('Pesquera Crianza', 'Alejandro Fernández', 1, 'Tempranillo', 'Ribera del Duero', 2017, 'Medio', 'Medio', 'Alto', 'Con Cuerpo', 'Cordero', 30),
+('Albariño Martín Códax', 'Martín Códax', 2, 'Albariño', 'Rías Baixas', 2020, 'Alto', 'Alto', 'Bajo', 'Ligero', 'Mariscos', 18),
+('Protos Roble', 'Bodegas Protos', 1, 'Tempranillo', 'Ribera del Duero', 2018, 'Medio', 'Medio', 'Medio', 'Medio', 'Carnes blancas', 15),
+('Muga Reserva', 'Bodegas Muga', 1, 'Tempranillo', 'Rioja', 2017, 'Medio', 'Medio', 'Medio', 'Con Cuerpo', 'Carnes rojas', 32),
+('Viña Ardanza Reserva', 'La Rioja Alta', 1, 'Tempranillo', 'Rioja', 2015, 'Alto', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes asadas', 38),
+('El Coto Crianza', 'El Coto de Rioja', 1, 'Tempranillo', 'Rioja', 2018, 'Medio', 'Medio', 'Medio', 'Medio', 'Tapas', 12),
+('Beronia Reserva', 'Bodegas Beronia', 1, 'Tempranillo', 'Rioja', 2016, 'Medio', 'Medio', 'Medio', 'Con Cuerpo', 'Carnes rojas', 28),
+('Enate Chardonnay', 'Enate', 2, 'Chardonnay', 'Somontano', 2021, 'Alto', 'Medio', 'Bajo', 'Medio', 'Pescados', 20),
+('Raimat Abadia', 'Raimat', 1, 'Cabernet Sauvignon', 'Costers del Segre', 2017, 'Medio', 'Medio', 'Medio', 'Con Cuerpo', 'Carnes rojas', 18),
+('Bach Extrísimo Seco', 'Bach', 2, 'Macabeo', 'Cataluña', 2021, 'Bajo', 'Medio', 'Bajo', 'Ligero', 'Aperitivos', 8),
+('Gran Feudo Rosado', 'Gran Feudo', 3, 'Garnacha', 'Navarra', 2021, 'Alto', 'Alto', 'Bajo', 'Ligero', 'Ensaladas', 9),
+('Freixenet Cordon Negro', 'Freixenet', 4, 'Macabeo', 'Cataluña', 'NV', 'Alto', 'Alto', 'Bajo', 'Ligero', 'Postres', 10),
+('Codorníu Anna de Codorníu', 'Codorníu', 4, 'Chardonnay', 'Cataluña', 'NV', 'Medio', 'Medio', 'Bajo', 'Ligero', 'Aperitivos', 15),
+('Terras Gauda O Rosal', 'Terras Gauda', 2, 'Albariño', 'Rías Baixas', 2020, 'Alto', 'Alto', 'Bajo', 'Medio', 'Mariscos', 22),
+('Palacio de Bornos Verdejo', 'Palacio de Bornos', 2, 'Verdejo', 'Rueda', 2021, 'Alto', 'Alto', 'Bajo', 'Ligero', 'Pescado blanco', 11),
+('Ramón Bilbao Crianza', 'Ramón Bilbao', 1, 'Tempranillo', 'Rioja', 2017, 'Medio', 'Medio', 'Medio', 'Medio', 'Tapas', 16),
+('Aalto PS', 'Aalto', 1, 'Tinto Fino', 'Ribera del Duero', 2015, 'Alto', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes de caza', 180),
+('Mauro VS', 'Bodegas Mauro', 1, 'Tempranillo', 'Castilla y León', 2016, 'Medio', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes rojas', 80),
+('Clos Mogador', 'Clos Mogador', 1, 'Garnacha', 'Priorat', 2015, 'Alto', 'Medio', 'Alto', 'Con Cuerpo', 'Carnes asadas', 120),
+('Abadía Retuerta Selección Especial', 'Abadía Retuerta', 1, 'Tempranillo', 'Ribera del Duero', 2016, 'Medio', 'Medio', 'Alto', 'Con Cuerpo', 'Cordero', 60),
+('Ossian', 'Ossian', 2, 'Verdejo', 'Rueda', 2019, 'Alto', 'Alto', 'Bajo', 'Medio', 'Pescados', 50),
+('La Faraona', 'Descendientes de J. Palacios', 1, 'Mencía', 'Bierzo', 2018, 'Medio', 'Medio', 'Medio', 'Medio', 'Carnes blancas', 100),
+('Artadi Viñas de Gain', 'Artadi', 1, 'Tempranillo', 'Rioja', 2017, 'Medio', 'Medio', 'Medio', 'Medio', 'Tapas', 45),
+('Pazo de Señorans Albariño', 'Pazo de Señorans', 2, 'Albariño', 'Rías Baixas', 2020, 'Alto', 'Alto', 'Bajo', 'Medio', 'Mariscos', 28),
+('Pago de Carraovejas Crianza', 'Pago de Carraovejas', 1, 'Tinto Fino', 'Ribera del Duero', 2018, 'Medio', 'Medio', 'Medio', 'Con Cuerpo', 'Carnes rojas', 40),
+('Tío Pepe Fino', 'González Byass', 5, 'Palomino', 'Jerez', 'NV', 'Bajo', 'Alto', 'Bajo', 'Ligero', 'Aperitivos', 14),
+('Amontillado Los Arcos', 'Emilio Lustau', 5, 'Palomino', 'Jerez', 'NV', 'Bajo', 'Alto', 'Medio', 'Medio', 'Frutos secos', 25),
+('Nectar Pedro Ximénez', 'González Byass', 5, 'Pedro Ximénez', 'Jerez', 'NV', 'Alto', 'Bajo', 'Bajo', 'Con Cuerpo', 'Postres', 20);
