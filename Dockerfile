@@ -1,5 +1,8 @@
 
-FROM richarvey/nginx-php-fpm:1.7.2
+FROM php:8.1-fpm
+
+# Instala las extensiones y dependencias necesarias
+RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
 
 # Copia todo el proyecto al directorio esperado
 COPY . /var/www/html
