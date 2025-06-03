@@ -4,11 +4,6 @@ FROM webdevops/php-nginx:8.1
 # Copia todo el proyecto al directorio esperado
 COPY . /var/www/html
 
-RUN php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan route:clear && \
-    php artisan view:clear
-
 # Variables de entorno
 ENV SKIP_COMPOSER=1
 ENV WEBROOT=/var/www/html/public
