@@ -17,4 +17,12 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 EXPOSE 8080
 
-CMD ["/start.sh"]
+#CMD ["/start.sh"]
+# Copia el script dentro de la imagen
+COPY scripts/00-laravel-deploy.sh /usr/local/bin/00-laravel-deploy.sh
+
+# Dale permisos de ejecución
+RUN chmod +x /usr/local/bin/00-laravel-deploy.sh
+
+# Usa ese script para arrancar (CMD o ENTRYPOINT)
+CMD ["/usr/local/bin/00-laravel-deploy.sh"]
