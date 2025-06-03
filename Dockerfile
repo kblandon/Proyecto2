@@ -1,6 +1,4 @@
 
-EXPOSE 8080
-
 FROM richarvey/nginx-php-fpm:1.7.2
 
 COPY . .
@@ -19,5 +17,7 @@ ENV LOG_CHANNEL stderr
 
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+EXPOSE 8080
 
 CMD ["/start.sh"]
