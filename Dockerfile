@@ -15,8 +15,6 @@ ENV APP_DEBUG=false
 ENV LOG_CHANNEL=stderr
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN chown -R www-data:www-data storage bootstrap/cache
-
 EXPOSE 8080
 
 #CMD ["/start.sh"]
