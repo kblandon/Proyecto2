@@ -1,4 +1,6 @@
 
+EXPOSE 8080
+
 FROM richarvey/nginx-php-fpm:1.7.2
 
 COPY . .
