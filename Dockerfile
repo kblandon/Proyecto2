@@ -1,18 +1,7 @@
 
-FROM php:8.1-fpm
-
-# Instala las extensiones y dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    libonig-dev \
-    libzip-dev \
-    zip \
-    unzip \
-    git \
-    curl \
-    && docker-php-ext-install pdo pdo_mysql mbstring tokenizer xml ctype bcmath zip
+FROM webdevops/php-nginx:8.1
 
 
-WORKDIR /var/www/html
 # Copia todo el proyecto al directorio esperado
 COPY . /var/www/html
 
