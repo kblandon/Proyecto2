@@ -2,10 +2,19 @@
 FROM php:8.1-fpm
 
 # Instala las extensiones y dependencias necesarias
-RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath gd
+RUN apt-get update && apt-get install -y \
+    libonig-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install mbstring pdo pdo_mysql zip
 
+WORKDIR /var/www/html
 # Copia todo el proyecto al directorio esperado
 COPY . /var/www/html
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --no-dev --optimize-autoloader
 
 # Variables de entorno
 ENV SKIP_COMPOSER=1
