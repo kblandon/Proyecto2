@@ -1,11 +1,8 @@
 
 FROM webdevops/php-nginx:8.1
 
-
 # Copia todo el proyecto al directorio esperado
 COPY . /var/www/html
-
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 RUN php artisan config:clear && \
     php artisan cache:clear && \
